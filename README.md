@@ -8,6 +8,7 @@ http://localhost:8080/
  - php v8.1.26
  - nodejs v20.10.0
  - npm v10.2.3
+ - composer v2.6.6
  - laravel v10.37.3
  - jquery v3.7.1 cnd
  - tailwind css v3.4.0
@@ -26,6 +27,12 @@ cp .env.example .env
 #### Run docker:
 ````
 docker-compose up -d
+````
+
+#### Build vendor laravel:
+````
+docker exec -it fabbi_test bash
+composer install
 ````
 
 #### Create key in .env laravel:
