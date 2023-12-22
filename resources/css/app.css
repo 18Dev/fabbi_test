@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.justify-between {
+    display: flex;
+    justify-content: space-between;
+}
+.pointer-events-none {
+    pointer-events: none;
+    opacity: 0.5;
+}
+.error-msg {
+    color: #FF0000;
+}

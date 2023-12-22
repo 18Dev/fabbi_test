@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+
+    # Web Server Service
+    nginx:
+        image: nginx:alpine
+        container_name: nginx
+        ports:
+            - "8080:80"
+        volumes:
+            - .:/var/www/html
+            - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+            - ./docker/nginx/logs:/var/log/nginx
+        depends_on:
+            - app
+
+    # Application Service
+    app:
+        container_name: fabbi_test
+        build:
+            context: ./docker/php
+            dockerfile: Dockerfile
+        volumes:
+            - .:/var/www/html
+        ports:
+            - "9000:9000"
+        working_dir: /var/www/html
+
+    node:
+        image: node:lts
+        volumes:
+            - .:/var/www/html
+        command: tail -f /dev/null
+        working_dir: /var/www/html
+        ports:
+            - "5173:5173"
+        container_name: node
