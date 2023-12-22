@@ -18,13 +18,22 @@ http://localhost:8080/
 https://github.com/18Dev/fabbi_test.git
 or ssh key
 git@github.com:18Dev/fabbi_test.git
+
+cd fabbi_test
+cp .env.example .env
 ````
 
 #### Run docker:
 ````
-cd fabbi_test
 docker-compose up -d
 ````
+
+#### Create key in .env laravel:
+````
+docker exec -it fabbi_test bash
+php artisan key:generate
+````
+
 #### Run npm:
 ````
 docker exec -it node bash
